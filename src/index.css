@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 28 100% 98%;
+    --foreground: 30 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 10%;
+
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 28 20% 95%;
+    --muted-foreground: 30 10% 45%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 28 30% 90%;
+    --input: 28 30% 90%;
+    --ring: 25 95% 53%;
+
+    --radius: 1rem;
+    
+    /* Custom brand colors */
+    --saffron: 25 95% 53%;
+    --saffron-light: 25 95% 65%;
+    --saffron-dark: 25 95% 43%;
+    
+    --forest: 142 76% 36%;
+    --forest-light: 142 60% 50%;
+    --forest-dark: 142 76% 26%;
+    
+    --spiritual: 262 83% 58%;
+    --spiritual-light: 262 70% 70%;
+    --spiritual-dark: 262 83% 48%;
+    
+    --heritage: 211 100% 50%;
+    --heritage-light: 211 100% 65%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--saffron)) 0%, hsl(var(--heritage)) 50%, hsl(var(--spiritual)) 100%);
+    --gradient-eco: linear-gradient(135deg, hsl(var(--forest)) 0%, hsl(142 60% 50%) 100%);
+    --gradient-culture: linear-gradient(135deg, hsl(var(--heritage)) 0%, hsl(262 70% 70%) 100%);
+    --gradient-spiritual: linear-gradient(135deg, hsl(var(--spiritual)) 0%, hsl(262 50% 40%) 100%);
+    --gradient-stories: linear-gradient(135deg, hsl(25 80% 60%) 0%, hsl(142 60% 50%) 100%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(var(--saffron) / 0.3);
+    --shadow-card: 0 10px 40px -10px hsl(var(--foreground) / 0.1);
+    --shadow-elevated: 0 20px 60px -15px hsl(var(--foreground) / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 30 15% 8%;
+    --foreground: 28 100% 98%;
+
+    --card: 30 15% 12%;
+    --card-foreground: 28 100% 98%;
+
+    --popover: 30 15% 12%;
+    --popover-foreground: 28 100% 98%;
+
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 30 15% 18%;
+    --muted-foreground: 28 20% 65%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 20%;
+    --input: 30 15% 20%;
+    --ring: 25 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-eco {
+    background: var(--gradient-eco);
+  }
+  
+  .gradient-culture {
+    background: var(--gradient-culture);
+  }
+  
+  .gradient-spiritual {
+    background: var(--gradient-spiritual);
+  }
+  
+  .gradient-stories {
+    background: var(--gradient-stories);
+  }
+  
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+}
